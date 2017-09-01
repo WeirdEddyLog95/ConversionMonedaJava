@@ -27,6 +27,7 @@ public class ConversionMain {
 		System.out.print("Que moneda desea convertirla? Pesos, Dolares, Euros: ");
 		moneda2 = entrada.nextLine();
 		
+		Se aplica unas condiciones adicionales para evitar redundancias, como peso a peso o dolares a dolares
 		if(moneda1.equals("Pesos") && moneda2.equals("Dolares")){
 			valor2 = con.ConPesosaDolares(valor1);
 			System.out.println("La conversion salio de " + "$" + valor1 + " Pesos " + "a " + "$" + valor2 + " Dolares");
@@ -44,7 +45,13 @@ public class ConversionMain {
 			System.out.println("La conversion salio de " + "$" + valor1 + " Dolares " + "a " + "$" + valor2 + " Euros");
 		} else if (moneda1.equals("Dolares") && moneda2.equals("Pesos")){
 			valor2 = con.ConDolaresaPesos(valor1);
-			System.out.println("La conversion salio de " + "$" + valor1 + " Pesos " + "a " + "$" + valor2 + " Euros");
+			System.out.println("La conversion salio de " + "$" + valor1 + " Dolares " + "a " + "$" + valor2 + " Pesos");
+		} else if(moneda1.equals("Pesos") && moneda2.equals("Pesos")){
+			System.out.println("Lo siento, no se puede convertir Pesos a Pesos, favor de poner otro valor de moneda que desea convertir");
+		} else if(moneda1.equals("Dolares") && moneda2.equals("Dolares")){
+			System.out.println("Lo siento, no se puede convertir Dolares a Dolares, favor de poner otro valor de moneda que desea convertir");
+		} else if(moneda1.equals("Euros") && moneda2.equals("Euros")){
+			System.out.println("Lo siento, no se puede convertir Euros a Euros, favor de poner otro valor de moneda que desea convertir");
 		}
 
 		
