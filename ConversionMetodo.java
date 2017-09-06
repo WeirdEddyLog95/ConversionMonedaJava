@@ -1,85 +1,51 @@
 package ConMoneda;
 
 public class ConversionMetodo {
+	IConMoneda conversion = new IConMoneda() {
+		
+		@Override
+		public void Equivalencia(TiposMoneda tipoActual, TiposMoneda tipoConvertir, double cantidadActual) {
+			switch (tipoActual){
+			case PESOS:
+				if(tipoConvertir == tipoConvertir.DOLARES){
+					double cantidadConvertir = cantidadActual / 17.73; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.PESOS + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.DOLARES);
+					break;
+				} else if (tipoConvertir == tipoConvertir.EUROS){
+					double cantidadConvertir = cantidadActual / 20.91; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.PESOS + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.EUROS);
+				} else {
+					System.out.println("Lo siento pero no se puede convertir a la misma cantidad que desea usar");
+				}
+				break;
+			case DOLARES:
+				if(tipoConvertir == tipoConvertir.PESOS){
+					double cantidadConvertir = cantidadActual / 0.06; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.DOLARES + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.PESOS);
+					break;
+				} else if (tipoConvertir == tipoConvertir.EUROS){
+					double cantidadConvertir = cantidadActual / 1.17; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.DOLARES + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.EUROS);
+				} else {
+					System.out.println("Lo siento pero no se puede convertir a la misma cantidad que desea usar");
+				}
+				break;
+			case EUROS:
+				if(tipoConvertir == tipoConvertir.DOLARES){
+					double cantidadConvertir = cantidadActual / 0.85; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.EUROS + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.DOLARES);
+					break;
+				} else if (tipoConvertir == tipoConvertir.PESOS){
+					double cantidadConvertir = cantidadActual / 0.05; 
+					System.out.println("De los " + cantidadActual + " " + TiposMoneda.EUROS + " se convirtio a " + cantidadConvertir + " " + TiposMoneda.PESOS);
+				} else {
+					System.out.println("Lo siento pero no se puede convertir a la misma cantidad que desea usar");
+				}
+				break;
+			}
+			
+		}
+
+	};
 	
-	//Para los pesos
-	public double ConPesosaDolares (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En dolares
-		double monedaD = 1.00;
-		//Para comprar 1 dolar en Pesos
-		double monedaPValor = 17.73;
-		//Proceso para la conversion
-		double Proceso = ((monedaD*MonedaActual)/monedaPValor);
-		return Proceso;
-	}
-	
-	public double ConPesosaEuros (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En Euros
-		double monedaE = 1.00;
-		//Para comprar 1 euro en Pesos
-		double monedaPValor = 20.91;
-		//Proceso para la conversion
-		double Proceso = ((monedaE*MonedaActual)/monedaPValor);
-		return Proceso;
-	}
-	
-	//Para los euros
-	public double ConEurosaPesos (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En Pesos
-		double monedaP = 1.00;
-		//Para comprar 1 peso en Euros
-		double monedaEValor = 0.05;
-		//Proceso para la conversion
-		double Proceso = ((monedaP*MonedaActual)/monedaEValor);
-		return Proceso;
-	}
-	
-	public double ConEurosaDolares (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En Dolares
-		double monedaD = 1.00;
-		//Para comprar 1 dolar en Euros
-		double monedaEValor = 0.85;
-		//Proceso para la conversion
-		double Proceso = ((monedaD*MonedaActual)/monedaEValor);
-		return Proceso;
-	}
-	
-	//Para los Dolares
-	public double ConDolaresaEuros (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En Euros
-		double monedaE = 1.00;
-		//Para comprar 1 Euro en dolares
-		double monedaDValor = 1.17;
-		//Proceso para la conversion
-		double Proceso = ((monedaE*MonedaActual)/monedaDValor);
-		return Proceso;
-	}
-	
-	public double ConDolaresaPesos (double moneda){
-		//Se requiere la cantidad en pesos
-		double MonedaActual = moneda;
-		//Se requiere el tipo de conversion que desea
-		//En Pesos
-		double monedaP = 1.00;
-		//Para comprar 1 peso en dolares
-		double monedaDValor = 0.06;
-		//Proceso para la conversion
-		double Proceso = ((monedaP*MonedaActual)/monedaDValor);
-		return Proceso;
-	}
 }
